@@ -18,7 +18,6 @@ import { PhotoService } from './demo/service/photo.service';
     ],
     imports: [
         AppRoutingModule,
-        AppLayoutModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
