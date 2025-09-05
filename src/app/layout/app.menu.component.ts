@@ -15,6 +15,34 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {
+                label: 'Bill split app',
+                items: [
+                    { label: 'Account', 
+                      icon: 'pi pi-github', 
+                      items: [
+                        { label: 'Bill history', icon: 'pi pi-money-bill', routerLink: ['/account/bill-history']},
+                        { label: 'Dashboard', icon: 'pi pi-chart-bar', routerLink: ['/account']},
+                      ]
+                    },
+                    { label: 'Group', 
+                      icon: 'pi pi-users', 
+                      items: [
+                        { label: 'Group list', icon: 'pi pi-users', routerLink: ['/group']},
+                        { label: 'Bill detail', icon: 'pi pi-wallet', routerLink: ['/group/bill-detail']},
+                        { label: 'Bill list', icon: 'pi pi-money-bill', routerLink: ['/group/bill']}
+                      ]
+                    },
+                    { label: 'Transfer', 
+                      icon: 'pi pi-send', 
+                      items: [
+                        { label: 'Friends list', icon: 'pi pi-users', routerLink: ['/transfer/friends-list']},
+                        { label: 'Transfer', icon: 'pi pi-wallet', routerLink: ['/transfer']},
+                        { label: 'Transfer detail', icon: 'pi pi-money-bill', routerLink: ['/transfer/transfer-detail']}
+                      ]
+                    },
+                ]
+            },
+            {
                 label: 'Home',
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
