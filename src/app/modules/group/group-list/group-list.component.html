@@ -9,4 +9,19 @@
     [rowsPerPage]="10"
     [rowsPerPageOptions]="[5, 10, 20]"
   ></app-base-list>
+
+  <app-base-form
+    [fields]="userFields"
+    [model]="userModel"
+    [header]="userHeader"
+    [submitLabel]="'Create'"
+    [isLoading]="isLoading"
+    (submitForm)="handleSubmit($event)">
+  </app-base-form>
+
+  <app-base-card
+    [name]="'Kai birthday party'"
+    [category]="'Friends meeting'"
+    [iconUrl]="'pi pi-users'">
+  </app-base-card>
 </div>

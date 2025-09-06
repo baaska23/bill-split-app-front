@@ -1,138 +1,131 @@
-.p-table {
-  border-collapse: collapse;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 6px;
-  overflow: hidden;
+.base-list-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(80, 0, 120, 0.04);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px;
 
-  th {
-    background: #e9ecef;
+  h2 {
+    margin-bottom: 1.5rem;
     color: #333;
-    font-weight: 500;
-    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
     text-align: left;
-    border-bottom: 1px solid #dee2e6;
+  }
 
-    .p-sortable-column {
-      cursor: pointer;
+  .p-table {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(80, 0, 120, 0.03);
+
+    th, td {
+      font-size: 1rem;
+    }
+
+    th {
+      background: #f3f4f6;
+      color: #333;
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #f1f3f5;
+      color: #495057;
+      background: #fff;
+      vertical-align: middle;
+    }
+
+    tr {
       transition: background-color 0.2s;
 
       &:hover {
-        background: #dee2e6;
+        background: #f8fafc;
       }
 
-      .p-sort-icon {
-        color: #6c757d;
-        font-size: 0.875rem;
+      &.p-highlight {
+        background: #e9ecef;
+        color: #333;
       }
     }
-  }
 
-  td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #dee2e6;
-    color: #495057;
-    font-size: 0.875rem;
-
-    .pi {
-      &.pi-check {
-        color: #28a745;
-      }
-      &.pi-times {
-        color: #dc3545;
-      }
-    }
-  }
-
-  tr {
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: #f1f3f5;
-    }
-
-    &.p-highlight {
-      background: #e9ecef;
-      color: #333;
-    }
-  }
-
-  .p-table-emptymessage {
-    td {
+    .p-table-emptymessage td {
       padding: 2rem;
       text-align: center;
       color: #6c757d;
       font-style: italic;
+      background: #f9fafb;
     }
   }
-}
 
-input[pInputText],
-.p-datepicker,
-.p-select,
-.p-checkbox {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  background: #ffffff;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  input[pInputText],
+  .p-datepicker,
+  .p-select,
+  .p-checkbox {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background: #f9fafb;
+    transition: border-color 0.2s, box-shadow 0.2s;
 
-  &:focus {
-    outline: none;
-    border-color: #6c757d;
-    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.2);
+    &:focus {
+      outline: none;
+      border-color: #6c757d;
+      box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.15);
+    }
   }
-}
 
-.p-select {
-  .p-select-dropdown {
+  .p-select .p-select-dropdown {
     border-color: #ced4da;
   }
-}
 
-.p-paginator {
-  background: transparent;
-  border: none;
-  padding: 0.5rem 0;
+  .p-paginator {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0;
 
-  .p-paginator-element {
-    color: #6c757d;
+    .p-paginator-element {
+      color: #6c757d;
+      border-radius: 4px;
+      margin: 0 0.25rem;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: #e9ecef;
+      }
+
+      &.p-highlight {
+        background: #6c757d;
+        color: #ffffff;
+      }
+    }
+
+    .p-paginator-current {
+      color: #495057;
+      font-size: 0.95rem;
+    }
+  }
+
+  button[pButton] {
+    background: #6c757d;
+    border: none;
     border-radius: 4px;
-    margin: 0 0.25rem;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
     transition: background-color 0.2s;
 
     &:hover {
-      background: #e9ecef;
+      background: #5a6268;
     }
 
-    &.p-highlight {
-      background: #6c757d;
-      color: #ffffff;
+    .pi {
+      margin-right: 0.5rem;
     }
-  }
-
-  .p-paginator-current {
-    color: #495057;
-    font-size: 0.875rem;
-  }
-}
-
-button[pButton] {
-  background: #6c757d;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  color: #ffffff;
-  font-size: 0.875rem;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background: #5a6268;
-  }
-
-  .pi {
-    margin-right: 0.5rem;
   }
 }
