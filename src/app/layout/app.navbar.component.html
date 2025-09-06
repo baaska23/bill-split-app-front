@@ -1,0 +1,10 @@
+<nav class="bottom-navbar">
+  <ul class="bottom-navbar-menu">
+    <li *ngFor="let item of model[0].items" class="bottom-navbar-item">
+      <a [routerLink]="item.routerLink" routerLinkActive="active" class="bottom-navbar-link">
+        <i [ngClass]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
