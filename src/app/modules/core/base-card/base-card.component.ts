@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 export interface Card {
     name: string;
@@ -15,4 +15,6 @@ export class BaseCardComponent {
     @Input() name: string;
     @Input() category: string;
     @Input() iconUrl?: string;
+
+    @Output() cardClick = new EventEmitter<any>();
 }

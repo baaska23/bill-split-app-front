@@ -1,3 +1,10 @@
-<div>
-  This is bill detail component
+<div class="card">
+  <h1>{{header}}</h1>
+  <app-pay-card [amount]="20"></app-pay-card>
+  <app-base-list
+    [columns]="listColumns"
+    [data]="listData"
+    [rowsPerPage]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+  ></app-base-list>
 </div>

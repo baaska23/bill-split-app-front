@@ -1,3 +1,11 @@
-<div>
-  This is bill list component
+<div class="card">
+  <h1>{{header}}</h1>
+  <ng-container *ngFor="let card of cardData">
+    <app-base-card
+      [name]="card.name"
+      [category]="card.category"
+      [iconUrl]="card.iconUrl"
+      (cardClick)="goToBillDetail(card)">
+    </app-base-card>
+  </ng-container>
 </div>

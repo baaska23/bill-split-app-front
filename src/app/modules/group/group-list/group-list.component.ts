@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GroupListService} from './group-list.service';
 import { ListColumn } from '../../core/base-list/base-list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-group-list',
@@ -17,8 +18,6 @@ export class GroupListComponent implements OnInit {
     { id: 2, name: 'Group B' }
   ];
   groupHeader: string = 'Group List';
-  showFilters: boolean = true;
-  showPaginator: boolean = true;
 
   userFields = [
     { name: 'name', label: 'Name', type: 'text', required: true },
@@ -31,13 +30,26 @@ export class GroupListComponent implements OnInit {
 
   handleSubmit(formValue: any) {
     this.isLoading = true;
-    // ...submit logic...
     this.isLoading = false;
   }
 
-  constructor(private service: GroupListService) {}
+  cardData: any[] = [
+    {id: 1, name: "Friends party", category: "Friends", iconUrl: "pi pi-users"},
+    {id: 2, name: "Speaking club", category: "Community", iconUrl: "pi pi-users"},
+    {id: 3, name: "Unitelz CS team", category: "Work", iconUrl: "pi pi-users"},
+    {id: 4, name: "Apartment sharing", category: "Household", iconUrl: "pi pi-users"},
+  ]
+
+  constructor(
+    private service: GroupListService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     console.log("This is group list component");
+  }
+
+  goToCardDetail(card: any) {
+    this.router.navigate(['/group/bill', card.name]);
   }
 }

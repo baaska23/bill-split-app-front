@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {BillListService} from './bill-list.service';
+import {Component, Input, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-bill-list',
@@ -7,10 +7,39 @@ import {BillListService} from './bill-list.service';
 })
 
 export class BillListComponent implements OnInit {
-  constructor(private service: BillListService) {}
+  @Input() header: string = '';
+  cardData: any[] = [];
+  groupName: any;
+
+  groupCards: { [key: string]: any[] } = {
+    "Friends party": [
+      { name: "Enji party", category: "Friends", iconUrl: "pi pi-users" },
+      { name: "Kai party", category: "Friends", iconUrl: "pi pi-users" }
+    ],
+    "Speaking club": [
+      { name: "English Night", category: "Community", iconUrl: "pi pi-users" }
+    ],
+    "Unitelz CS team": [
+      { name: "Sprint 1", category: "Work", iconUrl: "pi pi-users" }
+    ],
+    "Apartment sharing": [
+      { name: "Rent", category: "Household", iconUrl: "pi pi-users" }
+    ]
+  };
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    console.log("This is bill list component");
+    this.groupName = this.route.snapshot.paramMap.get('name')
+    this.header = this.groupName;
+    this.cardData = this.groupCards[this.groupName] || [];
+  }
+
+  goToBillDetail(card: any) {
+    this.router.navigate(['/group/bill-detail/', this.groupName, card.name]);
   }
 }
 

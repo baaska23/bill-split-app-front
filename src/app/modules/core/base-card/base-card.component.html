@@ -1,16 +1,12 @@
-<div class="card flex items-center justify-between p-4 rounded-xl shadow bg-white mb-4">
-  <div class="flex items-center gap-3">
-    <div class="avatar w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center text-lg font-bold text-purple-700">
-      {{ name ? name[0] : '?' }}
-    </div>
-    <div class="flex flex-col">
-      <span class="font-medium text-gray-900">{{ name }}</span>
-      <span class="text-sm text-gray-500">#{{ category }}</span>
+<div class="card" (click)="cardClick.emit()" style="cursor: pointer;">
+  <div class="card-content">
+    <div class="avatar">{{ name ? name[0] : '?' }}</div>
+    <div class="flex-col" style="margin-left: 0.5rem;">
+      <span class="card-title">{{ name }}</span>
+      <span class="card-category">#{{ category }}</span>
     </div>
   </div>
-  <div class="flex gap-2">
-    <button class="icon-btn" type="button">
-      <i [ngClass]="iconUrl"></i>
-    </button>
-  </div>
+  <button class="icon-btn" type="button">
+    <i [ngClass]="iconUrl"></i>
+  </button>
 </div>
