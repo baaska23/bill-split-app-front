@@ -6,6 +6,8 @@ import { BillDetailComponent } from './bill-detail/bill-detail.component';
 import { PayCardComponent } from './bill-detail/pay-card/pay-card.component';
 import { CoreModule } from '../core/core.module';
 import { CommonModule } from '@angular/common';
+import { PayFormComponent } from './bill-detail/pay-form/pay-form.component';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 const routes: Routes = [
   {
     path: '',
@@ -25,12 +27,15 @@ const routes: Routes = [
     GroupListComponent,
     BillListComponent,
     BillDetailComponent,
-    PayCardComponent
+    PayCardComponent,
+    PayFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     CoreModule,
-]
+    DynamicDialogModule
+  ],
+  providers: [DialogService]
 })
 export class GroupModule {}
