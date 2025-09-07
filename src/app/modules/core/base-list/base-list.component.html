@@ -1,4 +1,13 @@
 <div class="base-list-container p-4">
+  <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: center; background: #f8f9fa; border-radius: 2rem; padding: 0.5rem 1rem; width: 100%; max-width: 350px;">
+      <i class="pi pi-search" style="color: #6c757d; font-size: 1.1rem; margin-right: 0.5rem;"></i>
+      <input
+        pInputText type="text" #filter placeholder={{searchInput}}
+        style="border: none; outline: none; background: transparent; font-size: 1rem; color: #495057; width: 100%;"
+      />
+    </div>
+  </div>
   <h2 *ngIf="header" class="mb-3 text-xl font-semibold">
     {{ header }}
   </h2>

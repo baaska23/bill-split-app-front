@@ -1,3 +1,13 @@
-<div>
-  This is dashboard component
+<div class="card">
+  <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
 </div>
+<button (click)="goToBillHistory()">Details</button>
+<app-base-list
+    [columns]="dashboardColumn"
+    [data]="dashboardData"
+    [header]="dashboardHeader"
+    [showFilters]="true"
+    [showPaginator]="true"
+    [rowsPerPage]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+></app-base-list>

@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {BillHistoryComponent} from './bill-history/bill-history.component';
+import { ChartModule } from "primeng/chart";
+import { CoreModule } from '../core/core.module';
 
 const routes: Routes = [
   {
@@ -20,7 +22,9 @@ const routes: Routes = [
     BillHistoryComponent,
   ],
   imports: [
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    ChartModule,
+    CoreModule
+]
 })
 export class AccountModule {}

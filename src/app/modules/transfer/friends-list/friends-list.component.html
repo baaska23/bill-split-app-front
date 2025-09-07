@@ -1,3 +1,12 @@
-<div>
-  This is friend list component
-</div>
+<app-base-list
+    [columns]="friendsListColumn"
+    [data]="friendsListData"
+    [showFilters]="true"
+    [showPaginator]="true"
+    [rowsPerPage]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [searchInput]="'Search friends'"
+    (click)="onPay()"
+></app-base-list>
+
+<button (click)="goToPayForm()">Go</button>

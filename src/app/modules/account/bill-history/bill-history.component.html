@@ -1,3 +1,9 @@
-<div>
-  This is bill history component
-</div>
+<app-base-list
+    [columns]="billHistoryColumn"
+    [data]="billHistoryData"
+    [header]="billHistoryHeader"
+    [showFilters]="true"
+    [showPaginator]="true"
+    [rowsPerPage]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+></app-base-list>

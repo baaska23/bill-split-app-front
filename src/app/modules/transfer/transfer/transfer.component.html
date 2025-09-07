@@ -1,3 +1,15 @@
-<div>
-  This is transfer component
+<div class="send-container">
+  <h2 class="send-title">Send</h2>
+  <div class="keypad-card">
+    <div class="keypad-display">{{ value || 0 }}</div>
+    <div class="keypad-grid">
+      <button pButton *ngFor="let key of keys" class="keypad-btn" (click)="onKeyPress(key)">
+        {{ key }}
+      </button>
+    </div>
+    <div class="keypad-actions">
+      <button pButton class="back-btn" (click)="onBack()">Back</button>
+      <button pButton class="send-btn" (click)="onSend()">Send</button>
+    </div>
+  </div>
 </div>

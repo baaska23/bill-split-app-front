@@ -3,6 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import { TransferComponent } from './transfer/transfer.component';
 import {FriendsListComponent} from './friends-list/friends-list.component';
 import {TransferDetailComponent} from './transfer-detail/transfer-detail.component';
+import { ButtonModule } from "primeng/button";
+import { CommonModule } from '@angular/common';
+import { CoreModule } from '../core/core.module';
+import { DialogService } from 'primeng/dynamicdialog';
 
 const routes: Routes = [
   {
@@ -26,7 +30,11 @@ const routes: Routes = [
     TransferDetailComponent,
   ],
   imports: [
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    ButtonModule,
+    CommonModule,
+    CoreModule
+  ],
+  providers: [DialogService]
 })
 export class TransferModule {}

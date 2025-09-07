@@ -22,6 +22,7 @@ export class BaseListComponent {
   @Input() showPaginator: boolean = false;
   @Input() rowsPerPage!: number;
   @Input() rowsPerPageOptions!: number[];
+  @Input() searchInput: any;
 
   selectedColumns: ListColumn[] = [];
   filters: any = {};
