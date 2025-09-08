@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {GroupListService} from './group-list.service';
 import { ListColumn } from '../../core/base-list/base-list.component';
 import { Router } from '@angular/router';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { GroupCreateComponent } from '../group-create/group-create.component';
 
 @Component({
   selector: 'app-group-list',
@@ -42,7 +44,8 @@ export class GroupListComponent implements OnInit {
 
   constructor(
     private service: GroupListService,
-    private router: Router
+    private router: Router,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -51,5 +54,13 @@ export class GroupListComponent implements OnInit {
 
   goToCardDetail(card: any) {
     this.router.navigate(['/group/bill', card.name]);
+  }
+
+  onNew(){
+    this.dialogService.open(GroupCreateComponent, {
+      header: 'Create group',
+      width: '30vw',
+      height: '30vw'
+    })
   }
 }

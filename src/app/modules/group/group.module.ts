@@ -7,7 +7,10 @@ import { PayCardComponent } from './bill-detail/pay-card/pay-card.component';
 import { CoreModule } from '../core/core.module';
 import { CommonModule } from '@angular/common';
 import { PayFormComponent } from './bill-detail/pay-form/pay-form.component';
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
+import { GroupCreateComponent } from './group-create/group-create.component';
+import { SharedModule } from '../core/shared.module';
+import { BillCreateComponent } from './bill-create/bill-create.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,13 +31,15 @@ const routes: Routes = [
     BillListComponent,
     BillDetailComponent,
     PayCardComponent,
-    PayFormComponent
+    PayFormComponent,
+    GroupCreateComponent,
+    BillCreateComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     CoreModule,
-    DynamicDialogModule
+    SharedModule
   ],
   providers: [DialogService]
 })

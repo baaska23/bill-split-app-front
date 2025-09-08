@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DialogService } from 'primeng/dynamicdialog';
+import { BillCreateComponent } from '../bill-create/bill-create.component';
 
 @Component({
   selector: 'app-bill-list',
@@ -29,7 +31,8 @@ export class BillListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -40,6 +43,14 @@ export class BillListComponent implements OnInit {
 
   goToBillDetail(card: any) {
     this.router.navigate(['/group/bill-detail/', this.groupName, card.name]);
+  }
+
+  onNew(){
+    this.dialogService.open(BillCreateComponent, {
+      header: 'Create bill',
+      width: '30vw',
+      height: '30vw'
+    })
   }
 }
 
