@@ -7,7 +7,11 @@ import { environment } from 'src/environments/environment';
 export class GroupListService {
   constructor(private http: HttpClient) {}
 
-  getGroupList(): Observable<any>{
-    return this.http.get(environment.url + '/group-lists');
+  getGroups$(): Observable<any>{
+    return this.http.get(environment.url + '/groups');
+  }
+
+  createGroup$(group: any): Observable<any> {
+    return this.http.post(environment.url + "/create", group);
   }
 }

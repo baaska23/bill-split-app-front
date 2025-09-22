@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogService } from 'primeng/dynamicdialog';
 import { BillCreateComponent } from '../bill-create/bill-create.component';
+import { BillListService } from './bill-list.service';
 
 @Component({
   selector: 'app-bill-list',
@@ -11,38 +12,29 @@ import { BillCreateComponent } from '../bill-create/bill-create.component';
 export class BillListComponent implements OnInit {
   @Input() header: string = '';
   cardData: any[] = [];
-  groupName: any;
+  groupId: any
 
-  groupCards: { [key: string]: any[] } = {
-    "Friends party": [
-      { name: "Enji party", category: "Friends", iconUrl: "pi pi-users" },
-      { name: "Kai party", category: "Friends", iconUrl: "pi pi-users" }
-    ],
-    "Speaking club": [
-      { name: "English Night", category: "Community", iconUrl: "pi pi-users" }
-    ],
-    "Unitelz CS team": [
-      { name: "Sprint 1", category: "Work", iconUrl: "pi pi-users" }
-    ],
-    "Apartment sharing": [
-      { name: "Rent", category: "Household", iconUrl: "pi pi-users" }
-    ]
-  };
+  groupCardData: any[] = []
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private service: BillListService
   ) {}
 
   ngOnInit() {
-    this.groupName = this.route.snapshot.paramMap.get('name')
-    this.header = this.groupName;
-    this.cardData = this.groupCards[this.groupName] || [];
+    this.groupId = this.route.snapshot.paramMap.get('group_id')
+    this.service.getGroupById$(this.groupId).subscribe(data => {
+      this.groupCardData = data;
+      this.header = this.groupCardData['name'];
+      this.cardData = data.bills || []; 
+      console.log("groupCardData: ", this.groupCardData);
+      console.log("cardData: ", this.cardData);
+    })
   }
-
   goToBillDetail(card: any) {
-    this.router.navigate(['/group/bill-detail/', this.groupName, card.name]);
+    this.router.navigate(['/group/bill-detail/', this.groupId, card.name]);
   }
 
   onNew(){

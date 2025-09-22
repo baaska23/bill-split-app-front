@@ -35,12 +35,7 @@ export class GroupListComponent implements OnInit {
     this.isLoading = false;
   }
 
-  cardData: any[] = [
-    {id: 1, name: "Friends party", category: "Friends", iconUrl: "pi pi-users"},
-    {id: 2, name: "Speaking club", category: "Community", iconUrl: "pi pi-users"},
-    {id: 3, name: "Unitelz CS team", category: "Work", iconUrl: "pi pi-users"},
-    {id: 4, name: "Apartment sharing", category: "Household", iconUrl: "pi pi-users"},
-  ]
+  cardData: any[] = [];
 
   constructor(
     private service: GroupListService,
@@ -50,10 +45,13 @@ export class GroupListComponent implements OnInit {
 
   ngOnInit() {
     console.log("This is group list component");
+    this.service.getGroups$().subscribe(data => {
+      this.cardData = data;
+    })
   }
 
   goToCardDetail(card: any) {
-    this.router.navigate(['/group/bill', card.name]);
+    this.router.navigate(['/group/bill', card.group_id]);
   }
 
   onNew(){

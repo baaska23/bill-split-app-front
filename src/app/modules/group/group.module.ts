@@ -17,7 +17,7 @@ const routes: Routes = [
     component: GroupListComponent
   },
   {
-    path: 'bill/:name',
+    path: 'bill/:group_id',
     component: BillListComponent
   },
   {

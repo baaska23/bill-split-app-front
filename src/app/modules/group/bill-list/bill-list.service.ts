@@ -7,7 +7,11 @@ import { environment } from 'src/environments/environment';
 export class BillListService {
   constructor(private http: HttpClient) {}
 
-  getBillLists(): Observable<any> {
-    return this.http.get(environment.url + '/bill-lists')
+  getGroupById$(id: string): Observable<any> {
+    return this.http.get(environment.url + `/groups/${id}`);
+  }
+
+  createBill$(bill: any): Observable<any> {
+    return this.http.post(environment.url + "/create", bill);
   }
 }
