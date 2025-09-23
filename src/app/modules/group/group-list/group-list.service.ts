@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {bufferToggle, Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
@@ -12,6 +12,6 @@ export class GroupListService {
   }
 
   createGroup$(group: any): Observable<any> {
-    return this.http.post(environment.url + "/create", group);
+    return this.http.post(environment.url + "/create-group", group);
   }
 }

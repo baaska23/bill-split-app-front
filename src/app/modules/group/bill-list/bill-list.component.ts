@@ -24,7 +24,10 @@ export class BillListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.groupId = this.route.snapshot.paramMap.get('group_id')
+    this.groupId = this.route.snapshot.paramMap.get('group_id');
+    this.service.getBills$().subscribe(data => {
+      this.cardData = data;
+    });
     this.service.getGroupById$(this.groupId).subscribe(data => {
       this.groupCardData = data;
       this.header = this.groupCardData['name'];
@@ -39,6 +42,7 @@ export class BillListComponent implements OnInit {
 
   onNew(){
     this.dialogService.open(BillCreateComponent, {
+      data: {group_id: this.groupId},
       header: 'Create bill',
       width: '30vw',
       height: '30vw'

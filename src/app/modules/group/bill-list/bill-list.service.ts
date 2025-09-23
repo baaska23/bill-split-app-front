@@ -12,6 +12,14 @@ export class BillListService {
   }
 
   createBill$(bill: any): Observable<any> {
-    return this.http.post(environment.url + "/create", bill);
+    return this.http.post(environment.url + "/create-bill", bill);
+  }
+
+  getBills$(): Observable<any> {
+    return this.http.get(environment.url + "/bills");
+  }
+
+  getBillByGroupId$(id: string): Observable<any> {
+    return this.http.get(environment.url + `/bills/${id}`);
   }
 }
